@@ -1,4 +1,12 @@
-
+.box {
+    border: 1px solid black;
+}
+.doIt span{
+display: none;
+}
+.doIt:hover span{
+display: flex;
+}
 /* 
 
     You can write your own styles here...
