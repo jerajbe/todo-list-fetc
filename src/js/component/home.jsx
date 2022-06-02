@@ -8,8 +8,8 @@ import { Tittle } from "./Tittle";
 const Home = () => {
 	return (
 		<div className="d-flex flex-column justify-content-center align-middle">
-			<Tittle text="Todos" />
-			<Box className="box" />
+			<Tittle text="To-dos" />
+			<Box />
 		</div>
 	);
 };

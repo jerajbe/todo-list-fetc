@@ -16,6 +16,7 @@ export const InputRow = (props) => {
 	return (
 		<div className="w-100">
 			<input
+				className="p-2 ps-5 fs-5"
 				placeholder={props.text}
 				style={{ width: "100%" }}
 				value={props.value}

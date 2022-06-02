@@ -13,7 +13,7 @@ export const Box = () => {
 	]);
 
 	return (
-		<div className="container w-100 d-flex flex-column">
+		<div className="d-flex flex-column bigBox">
 			<InputRow
 				text="What needs to be done"
 				value={newTask}
@@ -21,7 +21,7 @@ export const Box = () => {
 				setterList={setListOfTasks}
 			/>
 			{listOfTasks.length === 0 ? (
-				<p>{`No tasks, add a task`}</p>
+				<p className="box mb-0 p-2 ps-4 fs-4">{`No tasks... add a task!`}</p>
 			) : (
 				<List list={listOfTasks} setterList={setListOfTasks} />
 			)}
