@@ -11,7 +11,7 @@ export const Task = (props) => {
 	}
 	return (
 		<li className="d-flex justify-content-between doIt box p-2 ps-5 fs-5">
-			{props.task}
+			{props.task.label}
 			<span className="delete pe-2" onClick={deleteTask}>
 				x
 			</span>
@@ -20,7 +20,7 @@ export const Task = (props) => {
 };
 
 Task.propTypes = {
-	task: PropTypes.string,
+	task: PropTypes.any,
 	setterList: PropTypes.func,
 	list: PropTypes.array,
 	id: PropTypes.number,

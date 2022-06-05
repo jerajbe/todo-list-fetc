@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 
 export const InputRow = (props) => {
 	function addNewTask(e) {
-		props.setter(e.target.value);
+		props.setter({
+			label: e.target.value,
+			done: false,
+		});
 	}
 	function pressEnter(e) {
 		if (e.key === "Enter") {
@@ -28,7 +31,7 @@ export const InputRow = (props) => {
 
 InputRow.propTypes = {
 	text: PropTypes.string,
-	value: PropTypes.string,
+	value: PropTypes.any,
 	setter: PropTypes.func,
 	setterList: PropTypes.func,
 };

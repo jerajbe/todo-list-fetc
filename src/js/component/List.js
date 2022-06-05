@@ -22,5 +22,5 @@ export const List = (props) => {
 
 List.propTypes = {
 	setterList: PropTypes.func,
-	list: PropTypes.array,
+	list: PropTypes.any,
 };
