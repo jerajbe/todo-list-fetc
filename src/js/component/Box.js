@@ -38,15 +38,16 @@ export const Box = () => {
 		getListOfTasks();
 	};
 
-	const editListOfTasks = async () => {
+	const editListOfTasks = async (newList) => {
 		const response = await fetch(
 			"http://assets.breatheco.de/apis/fake/todos/user/jesus",
 			{
 				method: "PUT",
 				headers: { "Content-type": "application/json" },
-				body: JSON.stringify(listOfTasks),
+				body: JSON.stringify(newList),
 			}
 		);
+		console.log(response);
 		return response;
 	};
 
@@ -59,13 +60,21 @@ export const Box = () => {
 			<InputRow
 				text="What needs to be done"
 				value={newTask}
+				list={listOfTasks}
 				setter={setNewTask}
 				setterList={setListOfTasks}
+				editList={editListOfTasks}
+				getList={getListOfTasks}
 			/>
 			{listOfTasks.length === 0 ? (
 				<p className="box mb-0 p-2 ps-4 fs-4">{`No tasks... add a task!`}</p>
 			) : (
-				<List list={listOfTasks} setterList={setListOfTasks} />
+				<List
+					list={listOfTasks}
+					setterList={setListOfTasks}
+					editList={editListOfTasks}
+					getList={getListOfTasks}
+				/>
 			)}
 			<Counter list={listOfTasks} />
 		</div>

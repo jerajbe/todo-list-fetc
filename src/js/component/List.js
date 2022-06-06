@@ -13,6 +13,8 @@ export const List = (props) => {
 						id={index}
 						setterList={props.setterList}
 						list={props.list}
+						editList={props.editList}
+						getList={props.getList}
 					/>
 				);
 			})}
@@ -23,4 +25,6 @@ export const List = (props) => {
 List.propTypes = {
 	setterList: PropTypes.func,
 	list: PropTypes.any,
+	editList: PropTypes.func,
+	getList: PropTypes.func,
 };

@@ -8,12 +8,23 @@ export const InputRow = (props) => {
 			done: false,
 		});
 	}
-	function pressEnter(e) {
+
+	async function pressEnter(e) {
 		if (e.key === "Enter") {
-			props.setterList((prevList) => [...prevList, props.value]);
-			props.setter("");
-			e.stopPropagation();
+			console.log("se presionó Enter");
+			const newList = [...props.list, props.value];
+			console.log(newList);
+			const editResponse = await props.editList(newList);
+			if (!editResponse.ok) {
+				alert("Error no pudimos agregar la tarea");
+				return;
+			}
+			props.setter({
+				label: "",
+				done: false,
+			});
 		}
+		props.getList();
 	}
 
 	return (
@@ -22,7 +33,7 @@ export const InputRow = (props) => {
 				className="p-2 ps-5 fs-5"
 				placeholder={props.text}
 				style={{ width: "100%" }}
-				value={props.value}
+				value={props.value.label}
 				onChange={addNewTask}
 				onKeyUp={pressEnter}></input>
 		</div>
@@ -34,4 +45,7 @@ InputRow.propTypes = {
 	value: PropTypes.any,
 	setter: PropTypes.func,
 	setterList: PropTypes.func,
+	editList: PropTypes.func,
+	getList: PropTypes.func,
+	list: PropTypes.any,
 };
