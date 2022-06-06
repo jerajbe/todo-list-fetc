@@ -51,6 +51,19 @@ export const Box = () => {
 		return response;
 	};
 
+	const deleteListOfTasks = async () => {
+		const response = await fetch(
+			"http://assets.breatheco.de/apis/fake/todos/user/jesus",
+			{
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		);
+		setListOfTasks([]);
+	};
+
 	useEffect(() => {
 		getListOfTasks();
 	}, []);
@@ -76,7 +89,7 @@ export const Box = () => {
 					getList={getListOfTasks}
 				/>
 			)}
-			<Counter list={listOfTasks} />
+			<Counter list={listOfTasks} deleteTasks={deleteListOfTasks} />
 		</div>
 	);
 };

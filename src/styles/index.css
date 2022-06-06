@@ -39,6 +39,11 @@ input{
     border-bottom: 1px solid black;
     color: gray;
 }
+.button {
+    margin: 4px;
+    background-color: rgb(238, 215, 216);
+    border: solid 1px black;
+}
 /* 
 
     You can write your own styles here...
